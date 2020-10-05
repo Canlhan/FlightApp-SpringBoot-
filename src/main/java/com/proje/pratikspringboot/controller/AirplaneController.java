@@ -1,0 +1,32 @@
+package com.proje.pratikspringboot.controller;
+
+import com.proje.pratikspringboot.domain.Airplane;
+import com.proje.pratikspringboot.sevice.AirplaneService;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RequiredArgsConstructor
+@RestController
+
+public class AirplaneController
+{
+    private final AirplaneService airplaneService;
+
+    @RequestMapping(method = RequestMethod.GET,value ="/airplane")
+    public ResponseEntity<List<Airplane>>  getAirplanes()
+    {
+        List<Airplane> airplanes=airplaneService.airplanes();
+        return ResponseEntity.ok(airplanes);
+    }
+    @RequestMapping(method = RequestMethod.POST,value ="/new")
+    public void addAirplane(@RequestBody Airplane airplane)
+    {
+            airplaneService.addAirplane(airplane);
+    }
+
+
+}
