@@ -23,6 +23,7 @@ public class Ticket
     @Column(name ="ticketnum")
     private String ticketnum;
 
+    //burayı düzelticem rota nesnesi eklicem
     @Column(name = "rota")
     private String rota;
 

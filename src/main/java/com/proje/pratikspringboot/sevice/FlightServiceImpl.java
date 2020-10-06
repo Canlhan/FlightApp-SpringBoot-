@@ -1,7 +1,9 @@
 package com.proje.pratikspringboot.sevice;
 
+import com.proje.pratikspringboot.domain.AirplaneCompany;
 import com.proje.pratikspringboot.domain.Flight;
 import com.proje.pratikspringboot.domain.Route;
+import com.proje.pratikspringboot.repositories.AirplaneCompanyRepository;
 import com.proje.pratikspringboot.repositories.FlightRepository;
 import com.proje.pratikspringboot.repositories.RouteRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +18,7 @@ public class FlightServiceImpl  implements FlightService{
 
     private final RouteRepository routeRepository;
 
+    private final AirplaneCompanyRepository airplaneCompanyRepository;
     @Override
     public List<Flight> findAll() {
         return (List<Flight>) flightRepository.findAll();
@@ -24,11 +27,10 @@ public class FlightServiceImpl  implements FlightService{
     @Override
     public void createFlight(Flight flight, Long routeId) {
         Route route=routeRepository.findById(routeId).orElse(null);
-
+        AirplaneCompany airplaneCompany=airplaneCompanyRepository.findByaircompanyName("thy");
         flight.setRoute(route);
-        routeRepository.save(route);
+        flight.setAirplaneCompany(airplaneCompany);
         flightRepository.save(flight);
-
     }
 
     @Override
