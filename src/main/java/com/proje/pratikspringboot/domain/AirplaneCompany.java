@@ -25,9 +25,9 @@ public class AirplaneCompany
     private String aircompanyName;
 
     @ManyToMany(cascade = CascadeType.ALL,mappedBy ="airplanecompanies" )
-    private Set<Airplane> airplanes;
+    private Set<Airplane> airplanes=new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "airplaneCompany")
-    private Set<Flight> flights;
+    private Set<Flight> flights=new HashSet<>();
 
 }

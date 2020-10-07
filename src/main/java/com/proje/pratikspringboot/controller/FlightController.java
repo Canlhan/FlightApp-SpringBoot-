@@ -31,4 +31,6 @@ public class FlightController
         flightService.createFlight(flight,id);
         return ResponseEntity.ok().build();
     }
+
+
 }

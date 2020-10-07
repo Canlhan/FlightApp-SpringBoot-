@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,5 +24,5 @@ public class Customer
     private String name;
 
     @ManyToMany(cascade = CascadeType.ALL,mappedBy ="customers")
-    private Set<Ticket> tickets;
+    private Set<Ticket> tickets=new HashSet<>();
 }

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,7 +25,7 @@ public class Flight
     private Route route;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy ="flight")
-    private Set<Ticket> tickets;
+    private Set<Ticket> tickets=new HashSet<>();
 
     @ManyToOne
     private AirplaneCompany airplaneCompany;

@@ -7,7 +7,10 @@ import com.proje.pratikspringboot.repositories.TicketRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -27,13 +30,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void saveCustomer(Customer customer, Long ticketId) {
-        Ticket ticket = ticketRepository.findById(ticketId).orElse(null);
-        Customer customer1 = customerRepository.save(customer);
+        Ticket ticket = ticketRepository.findById(ticketId).orElse(new Ticket());
 
-        if ( ticket != null) {
-            ticket.getCustomers().add(customer);
-            customer1.getTickets().add(ticket);
-        }
+        ticket.getCustomers().add(customer);
+        customer.getTickets().add(ticket);
+        //customerRepository.save(customer1);
+         customerRepository.save(customer);
     }
 
 

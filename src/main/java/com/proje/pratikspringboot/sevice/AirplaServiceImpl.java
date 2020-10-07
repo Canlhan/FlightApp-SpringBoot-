@@ -1,6 +1,8 @@
 package com.proje.pratikspringboot.sevice;
 
 import com.proje.pratikspringboot.domain.Airplane;
+import com.proje.pratikspringboot.domain.AirplaneCompany;
+import com.proje.pratikspringboot.repositories.AirplaneCompanyRepository;
 import com.proje.pratikspringboot.repositories.AirplaneRepository;
 import com.proje.pratikspringboot.sevice.AirplaneService;
 import lombok.AllArgsConstructor;
@@ -17,9 +19,19 @@ public class AirplaServiceImpl implements AirplaneService {
 
     private final  AirplaneRepository airplaneRepository;
 
+    private final AirplaneCompanyRepository airplaneCompanyRepository;
 
     @Override
     public Airplane addAirplane(Airplane requestAirplane) {
+        return airplaneRepository.save(requestAirplane);
+    }
+
+    @Override
+    public Airplane addAirplane(Airplane requestAirplane,Long companyId)
+    {
+        AirplaneCompany airplaneCompany=airplaneCompanyRepository.findById(companyId).orElse(null);
+        requestAirplane.getAirplanecompanies().add(airplaneCompany);
+
         return airplaneRepository.save(requestAirplane);
     }
 
@@ -31,12 +43,9 @@ public class AirplaServiceImpl implements AirplaneService {
 
     @Override
     public List<Airplane> airplanes() {
-       List<Airplane> airplanes= (List<Airplane>) airplaneRepository.findAll();
-       Airplane adnanmenderes=new Airplane();
-       adnanmenderes.setAirplaneName("adnan menderes");
-       adnanmenderes.setId(1L);
-       airplanes.add(adnanmenderes);
-        return airplanes;
+
+
+        return (List<Airplane>) airplaneRepository.findAll();
     }
 
 

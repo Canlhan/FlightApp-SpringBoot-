@@ -25,7 +25,7 @@ public class Airplane
     @ManyToMany
     @JoinTable(name="plane_company" ,joinColumns = @JoinColumn(name="plane_id"),
             inverseJoinColumns = @JoinColumn(name="aircompany_id"))
-    private Set<AirplaneCompany> airplanecompanies;
+    private Set<AirplaneCompany> airplanecompanies=new HashSet<>();
 
 
 

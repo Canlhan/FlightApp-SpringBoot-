@@ -18,7 +18,10 @@ public class AirplaneCompanyServiceImpl implements AirplaneCompanyService {
     private final AirplaneRepository airplaneRepository;
 
    @Override
-    public AirplaneCompany addAirplaneCompany(AirplaneCompany airplaneCompany) {
+    public AirplaneCompany addAirplaneCompany(AirplaneCompany airplaneCompany,Long id) {
+       Airplane airplane=airplaneRepository.findById(id).orElse(null);
+
+       airplaneCompany.getAirplanes().add(airplane);
         return  airplaneCompanyRepository.save(airplaneCompany);
     }
 
