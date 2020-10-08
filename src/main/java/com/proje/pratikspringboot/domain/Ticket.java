@@ -32,6 +32,7 @@ public class Ticket
     private String time;
 
     @ManyToOne
+    @JoinColumn(name ="flight_id")
     private Flight flight;
 
     @ManyToMany

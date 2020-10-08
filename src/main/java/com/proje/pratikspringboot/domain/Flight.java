@@ -28,6 +28,7 @@ public class Flight
     private Set<Ticket> tickets=new HashSet<>();
 
     @ManyToOne
+    @JoinColumn(name ="airplanecompany_id")
     private AirplaneCompany airplaneCompany;
 
     private String flightname;

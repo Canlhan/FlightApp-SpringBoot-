@@ -15,14 +15,13 @@ import java.util.Optional;
 public class AirplaneCompanyServiceImpl implements AirplaneCompanyService {
 
     private final AirplaneCompanyRepository airplaneCompanyRepository;
+
     private final AirplaneRepository airplaneRepository;
 
    @Override
-    public AirplaneCompany addAirplaneCompany(AirplaneCompany airplaneCompany,Long id) {
-       Airplane airplane=airplaneRepository.findById(id).orElse(null);
-
-       airplaneCompany.getAirplanes().add(airplane);
-        return  airplaneCompanyRepository.save(airplaneCompany);
+    public AirplaneCompany addAirplaneCompany(AirplaneCompany airplaneCompany)
+   {
+       return  airplaneCompanyRepository.save(airplaneCompany);
     }
 
     @Override
@@ -36,8 +35,13 @@ public class AirplaneCompanyServiceImpl implements AirplaneCompanyService {
     }
 
     @Override
-    public List<Airplane> airplanes(Long AirplaneId,AirplaneCompany airplaneCompany) {
-        Optional<Airplane> airplane=airplaneRepository.findById(AirplaneId);
-        return null;
+    public void airplanes(Long AirplaneId,Long CompanyId) {
+       Airplane airplane=airplaneRepository.findById(AirplaneId).orElse(null);
+
+       AirplaneCompany  airplaneCompany=airplaneCompanyRepository.findById(CompanyId).orElse(null);
+
+       airplaneCompany.getAirplanes().add(airplane);
+
+
     }
 }

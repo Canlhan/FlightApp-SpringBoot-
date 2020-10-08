@@ -24,7 +24,9 @@ public class AirplaneCompany
     @Column(name="company_name")
     private String aircompanyName;
 
-    @ManyToMany(cascade = CascadeType.ALL,mappedBy ="airplanecompanies" )
+    @ManyToMany
+    @JoinTable(name="plane_company" ,joinColumns = @JoinColumn(name="plane_id"),
+            inverseJoinColumns = @JoinColumn(name="aircompany_id"))
     private Set<Airplane> airplanes=new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "airplaneCompany")

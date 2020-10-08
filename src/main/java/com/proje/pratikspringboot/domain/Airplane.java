@@ -22,9 +22,7 @@ public class Airplane
     @Column(name="airplane_name")
     private String airplaneName;
 
-    @ManyToMany
-    @JoinTable(name="plane_company" ,joinColumns = @JoinColumn(name="plane_id"),
-            inverseJoinColumns = @JoinColumn(name="aircompany_id"))
+    @ManyToMany(cascade = CascadeType.ALL,mappedBy ="airplanes")
     private Set<AirplaneCompany> airplanecompanies=new HashSet<>();
 
 

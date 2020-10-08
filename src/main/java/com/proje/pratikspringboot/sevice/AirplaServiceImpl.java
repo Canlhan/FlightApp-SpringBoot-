@@ -23,7 +23,7 @@ public class AirplaServiceImpl implements AirplaneService {
 
     @Override
     public Airplane addAirplane(Airplane requestAirplane) {
-        return airplaneRepository.save(requestAirplane);
+        return airplaneRepository.save(requestAirplane) ;
     }
 
     @Override
