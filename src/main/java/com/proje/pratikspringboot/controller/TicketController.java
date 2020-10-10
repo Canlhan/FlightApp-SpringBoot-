@@ -5,10 +5,7 @@ import com.proje.pratikspringboot.sevice.TicketService;
 import lombok.RequiredArgsConstructor;
 import org.apache.catalina.connector.Response;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,11 +22,20 @@ public class TicketController
         return ResponseEntity.ok(tickets);
     }
 
+    @RequestMapping(method =RequestMethod.POST,value ="/ticket/{id}/route/{routeId}")
+    public ResponseEntity<?> createTicket(@RequestBody Ticket ticket, @PathVariable Long id,@PathVariable Long routeId)
+    {
+        ticketService.createTicket(ticket,id,routeId);
+        return ResponseEntity.ok().build();
+    }
+
     @RequestMapping(method =RequestMethod.POST,value ="/ticket")
     public ResponseEntity<?> createTicket(@RequestBody Ticket ticket)
     {
-        ticketService.createTicket(ticket);
+        ticketService.createtick(ticket);
         return ResponseEntity.ok().build();
     }
+
+
 
 }

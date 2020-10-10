@@ -22,17 +22,23 @@ public class AirplaServiceImpl implements AirplaneService {
     private final AirplaneCompanyRepository airplaneCompanyRepository;
 
     @Override
-    public Airplane addAirplane(Airplane requestAirplane) {
-        return airplaneRepository.save(requestAirplane) ;
+    public Airplane addAirplane(Airplane requestAirplane,Long companyId) {
+        Airplane airplane=new Airplane();
+        AirplaneCompany airplaneCompany=airplaneCompanyRepository.findById(companyId).orElse(new AirplaneCompany());
+        airplaneCompany.setId(companyId);
+        airplane.setAirplaneName(requestAirplane.getAirplaneName());
+        airplane.getAirplanecompanies().add(airplaneCompany);
+
+
+
+        return airplaneRepository.save(airplane);
     }
 
     @Override
-    public Airplane addAirplane(Airplane requestAirplane,Long companyId)
+    public Airplane addAirplane(Airplane airplane)
     {
-        AirplaneCompany airplaneCompany=airplaneCompanyRepository.findById(companyId).orElse(null);
-        requestAirplane.getAirplanecompanies().add(airplaneCompany);
 
-        return airplaneRepository.save(requestAirplane);
+        return airplaneRepository.save(airplane);
     }
 
     @Override
@@ -43,8 +49,6 @@ public class AirplaServiceImpl implements AirplaneService {
 
     @Override
     public List<Airplane> airplanes() {
-
-
         return (List<Airplane>) airplaneRepository.findAll();
     }
 

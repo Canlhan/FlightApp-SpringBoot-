@@ -36,11 +36,10 @@ public class AirplaneCompanyServiceImpl implements AirplaneCompanyService {
 
     @Override
     public void airplanes(Long AirplaneId,Long CompanyId) {
-       Airplane airplane=airplaneRepository.findById(AirplaneId).orElse(null);
+       Airplane airplane=airplaneRepository.findById(1L).orElse(null);
 
        AirplaneCompany  airplaneCompany=airplaneCompanyRepository.findById(CompanyId).orElse(null);
 
-       airplaneCompany.getAirplanes().add(airplane);
 
 
     }

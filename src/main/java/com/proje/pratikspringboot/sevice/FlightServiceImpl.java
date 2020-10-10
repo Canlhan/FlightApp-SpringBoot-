@@ -12,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class FlightServiceImpl  implements FlightService{
@@ -31,9 +33,7 @@ public class FlightServiceImpl  implements FlightService{
     @Override
     public void createFlight(Flight flight, Long routeId) {
         Route route=routeRepository.findById(routeId).orElse(null);
-        AirplaneCompany airplaneCompany=airplaneCompanyRepository.findByaircompanyName("thy");
         flight.setRoute(route);
-        flight.setAirplaneCompany(airplaneCompany);
         flightRepository.save(flight);
     }
 
@@ -47,6 +47,30 @@ public class FlightServiceImpl  implements FlightService{
     public Flight findById(Long id) {
 
         return flightRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public void addAirplaneCompany(Flight flight, Long companyId) {
+        Flight fligth2=new Flight();
+
+       AirplaneCompany airplaneCompany=airplaneCompanyRepository.findById(companyId).orElse(null);
+        flightRepository.findAll().forEach(item->{
+            if(item.getFlightname().matches(flight.getFlightname()))
+            {
+             item.setAirplaneCompany(airplaneCompany);
+                System.out.println(airplaneCompany.getAircompanyName());
+                flightRepository.save(item);
+            }
+        });
+
+        fligth2.setFlightname(flight.getFlightname());
+        fligth2.setAirplaneCompany(airplaneCompany);
+
+
+
+
+
+
     }
 
 

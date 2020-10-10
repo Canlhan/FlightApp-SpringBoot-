@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,11 +26,11 @@ public class Ticket
     private String ticketnum;
 
     //burayı düzelticem rota nesnesi eklicem
-    @Column(name = "rota")
+    @Column(name = "route_id")
     private String rota;
 
     @Column(name = "time")
-    private String time;
+    private   String time;
 
     @ManyToOne
     @JoinColumn(name ="flight_id")

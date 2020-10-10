@@ -32,5 +32,12 @@ public class FlightController
         return ResponseEntity.ok().build();
     }
 
+    @RequestMapping(method = RequestMethod.PUT,value ="/flight/company/{id}")
+    public ResponseEntity<?> addCompany(@RequestBody Flight flight, @PathVariable  Long id)
+    {
+        flightService.addAirplaneCompany(flight,id);
+        return ResponseEntity.ok().build();
+    }
+
 
 }

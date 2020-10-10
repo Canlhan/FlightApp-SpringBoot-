@@ -22,17 +22,17 @@ public class AirplaneController
         List<Airplane> airplanes=airplaneService.airplanes();
         return ResponseEntity.ok(airplanes);
     }
-    @RequestMapping(method = RequestMethod.POST,value ="/new")
-    public void addAirplane(@RequestBody Airplane airplane)
-    {
-
-        airplaneService.addAirplane(airplane);
-    }
     @RequestMapping(method = RequestMethod.POST,value ="/new/{id}")
     public void addAirplane(@RequestBody Airplane airplane,@PathVariable Long id)
     {
+
+        airplaneService.addAirplane(airplane,id);
+    }
+    @RequestMapping(method = RequestMethod.POST,value ="/new")
+    public void addAirplane(@RequestBody Airplane airplane)
+    {
         //buradaki id  airplanecompany nesnesi bulup  airplane içindeki companies setine eklemek için aldım
-            airplaneService.addAirplane(airplane,id);
+            airplaneService.addAirplane(airplane);
     }
 
 

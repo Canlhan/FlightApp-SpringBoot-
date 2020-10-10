@@ -13,4 +13,6 @@ public interface AirplaneCompanyRepository extends CrudRepository<AirplaneCompan
     AirplaneCompany findByaircompanyName(String companyName);
 
 
+
+
 }

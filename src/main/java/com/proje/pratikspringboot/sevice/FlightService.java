@@ -9,6 +9,6 @@ public interface FlightService{
     void createFlight(Flight flight,Long routeId);
     void deleteFlight(Long id);
     Flight findById(Long id);
-
+    void addAirplaneCompany(Flight flight,Long companyId);
 
 }

@@ -18,8 +18,6 @@ public class CustomerController
     private final CustomerService customerService;
 
 
-
-
     @RequestMapping(method = RequestMethod.GET,value ="/customers")
     public ResponseEntity<List<Customer>>  getAll()
     {

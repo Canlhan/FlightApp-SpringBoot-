@@ -30,12 +30,14 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void saveCustomer(Customer customer, Long ticketId) {
+        Customer customer1=new Customer();
+        customer1.setName(customer.getName());
         Ticket ticket = ticketRepository.findById(ticketId).orElse(new Ticket());
 
-        ticket.getCustomers().add(customer);
-        customer.getTickets().add(ticket);
-        //customerRepository.save(customer1);
-         customerRepository.save(customer);
+        ticket.getCustomers().add(customer1);
+        customer1.getTickets().add(ticket);
+
+        customerRepository.save(customer1);
     }
 
 

@@ -7,7 +7,8 @@ import java.util.List;
 public interface TicketService
 {
     List<Ticket> findAll();
-    void createTicket(Ticket ticket);
+    void createtick(Ticket ticket);
+    void createTicket(Ticket ticket,Long flightId,Long routeId);
     void deleteById(Long id);
 
 

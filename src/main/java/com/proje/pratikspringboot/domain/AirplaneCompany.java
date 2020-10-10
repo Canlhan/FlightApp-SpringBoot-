@@ -17,6 +17,7 @@ import java.util.Set;
 @Table(name = "airplane_company")
 public class AirplaneCompany
 {
+    //manytomany ilişkide bir sorun var 3. tabloya verileri atamadım sonra halledicem
     @Id
     @GeneratedValue
     private Long id;
@@ -24,9 +25,8 @@ public class AirplaneCompany
     @Column(name="company_name")
     private String aircompanyName;
 
-    @ManyToMany
-    @JoinTable(name="plane_company" ,joinColumns = @JoinColumn(name="plane_id"),
-            inverseJoinColumns = @JoinColumn(name="aircompany_id"))
+    @ManyToMany(mappedBy ="airplanecompanies")
+
     private Set<Airplane> airplanes=new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "airplaneCompany")

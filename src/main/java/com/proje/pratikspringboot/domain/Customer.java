@@ -23,6 +23,6 @@ public class Customer
     @Column(name ="name")
     private String name;
 
-    @ManyToMany(cascade = CascadeType.ALL,mappedBy ="customers")
+    @ManyToMany(mappedBy ="customers")
     private Set<Ticket> tickets=new HashSet<>();
 }
