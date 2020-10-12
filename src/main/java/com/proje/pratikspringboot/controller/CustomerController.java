@@ -6,9 +6,11 @@ import com.proje.pratikspringboot.sevice.CustomerService;
 import com.proje.pratikspringboot.sevice.TicketService;
 import lombok.RequiredArgsConstructor;
 import org.apache.coyote.Response;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -31,7 +33,13 @@ public class CustomerController
         customerService.saveCustomer(customer,id);
         return ResponseEntity.ok().build();
     }
+    @RequestMapping(method = RequestMethod.POST,value ="/customer")
+    public ResponseEntity<?> createCustomer(HttpServletRequest  request,@RequestBody  Customer customer)
+    {
 
+        return ResponseEntity.ok().build();
+
+    }
 
 
 

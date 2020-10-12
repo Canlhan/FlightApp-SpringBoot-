@@ -36,10 +36,9 @@ public class Ticket
     @JoinColumn(name ="flight_id")
     private Flight flight;
 
-    @ManyToMany
-    @JoinTable(name="customer_ticket",joinColumns = @JoinColumn(name ="ticket_id"),
-            inverseJoinColumns = @JoinColumn(name ="customer_id"))
-    private Set<Customer> customers=new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name ="customer_id")
+    private Customer customer;
 
 
 

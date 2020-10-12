@@ -57,7 +57,7 @@ public class FlightServiceImpl  implements FlightService{
         flightRepository.findAll().forEach(item->{
             if(item.getFlightname().matches(flight.getFlightname()))
             {
-             item.setAirplaneCompany(airplaneCompany);
+               item.setAirplaneCompany(airplaneCompany);
                 System.out.println(airplaneCompany.getAircompanyName());
                 flightRepository.save(item);
             }

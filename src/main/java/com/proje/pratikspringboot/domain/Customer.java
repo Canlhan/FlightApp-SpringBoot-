@@ -23,6 +23,15 @@ public class Customer
     @Column(name ="name")
     private String name;
 
-    @ManyToMany(mappedBy ="customers")
+    @OneToMany(cascade =CascadeType.ALL, mappedBy ="customer")
     private Set<Ticket> tickets=new HashSet<>();
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Customer{");
+        sb.append("id=").append(id);
+        sb.append(", name='").append(name).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }
