@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface AirplaneCompanyService
 {
+
     AirplaneCompany addAirplaneCompany(AirplaneCompany airplaneCompany);
     void deleteAirplaneCompany(Long airplanecompanyId);
     List<AirplaneCompany> getAllCompanies();

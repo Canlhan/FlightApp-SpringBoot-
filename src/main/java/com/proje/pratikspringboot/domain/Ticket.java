@@ -25,7 +25,7 @@ public class Ticket
     @Column(name ="ticketnum")
     private String ticketnum;
 
-    //burayı düzelticem rota nesnesi eklicem
+
     @Column(name = "route_id")
     private String rota;
 

@@ -15,6 +15,7 @@ import java.util.Set;
 @Table(name="airplane")
 public class Airplane
 {
+
     @Id
     @GeneratedValue
     private Long id;

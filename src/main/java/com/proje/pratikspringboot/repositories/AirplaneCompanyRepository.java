@@ -10,6 +10,7 @@ import java.util.List;
 @Repository
 public interface AirplaneCompanyRepository extends CrudRepository<AirplaneCompany,Long>
 {
+
     AirplaneCompany findByaircompanyName(String companyName);
 
 

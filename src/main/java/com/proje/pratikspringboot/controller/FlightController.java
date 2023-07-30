@@ -13,7 +13,9 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 
-public class FlightController
+public class
+
+FlightController
 {
     private final FlightService flightService;
 

@@ -20,6 +20,7 @@ public class Route
     @GeneratedValue
     private Long id;
 
+
     @Column(name ="fromm")
     private String from;
 

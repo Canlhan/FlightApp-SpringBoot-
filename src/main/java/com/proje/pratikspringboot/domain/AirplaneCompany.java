@@ -22,6 +22,7 @@ public class AirplaneCompany
     @GeneratedValue
     private Long id;
 
+
     @Column(name="company_name")
     private String aircompanyName;
 

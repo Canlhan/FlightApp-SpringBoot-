@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface AirplaneRepository  extends CrudRepository<Airplane,Long>
 {
 
+
 }

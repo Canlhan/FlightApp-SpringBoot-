@@ -17,6 +17,7 @@ import java.util.List;
 @Service
 public class AirplaServiceImpl implements AirplaneService {
 
+
     private final  AirplaneRepository airplaneRepository;
 
     private final AirplaneCompanyRepository airplaneCompanyRepository;

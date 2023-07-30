@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-public class RouteController
+public class
+RouteController
 {
     private final RouteService routeService;
 

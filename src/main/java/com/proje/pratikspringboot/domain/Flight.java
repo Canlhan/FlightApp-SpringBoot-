@@ -24,6 +24,7 @@ public class Flight
     @JoinColumn(name = "route_id")
     private Route route;
 
+
     @OneToMany(cascade = CascadeType.ALL,mappedBy ="flight")
     private Set<Ticket> tickets=new HashSet<>();
 

@@ -23,6 +23,7 @@ public class Customer
     @Column(name ="name")
     private String name;
 
+
     @OneToMany(cascade =CascadeType.ALL, mappedBy ="customer")
     private Set<Ticket> tickets=new HashSet<>();
 
