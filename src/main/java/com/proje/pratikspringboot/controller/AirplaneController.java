@@ -33,7 +33,7 @@ public class AirplaneController
     @RequestMapping(method = RequestMethod.POST,value ="/new")
     public void addAirplane(@RequestBody Airplane airplane)
     {
-        //buradaki id  airplanecompany nesnesi bulup  airplane içindeki companies setine eklemek için aldım
+        
             airplaneService.addAirplane(airplane);
     }
 
