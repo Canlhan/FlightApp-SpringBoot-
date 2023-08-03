@@ -28,6 +28,10 @@ public class AirplaneController
     public void addAirplane(@RequestBody Airplane airplane,@PathVariable Long id)
     {
 
+
+
+
+        
         airplaneService.addAirplane(airplane,id);
     }
     @RequestMapping(method = RequestMethod.POST,value ="/new")
